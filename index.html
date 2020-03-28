@@ -7,14 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wedda Boi</title>
 </head>
-<body>
+<body background="https://image.shutterstock.com/image-vector/cartoon-unicorn-rainbow-mane-tail-260nw-241772695.jpg" style="width: 100%;">
     <div style="padding-top: 1%; color: white; background-color: darkblue; font-family: Georgia, 'Times New Roman', Times, serif; height: 200px; font-size: 100px; text-align: center;" class="container-fluid" >
         WEDDA BOI USING API
       </div>
    <div style="max-width:35%; float:left; height: 500px; border: black;border-width: 2px;border-style: dashed;" class="container">
         <div class="row">
             <div style="font-size: xx-large; color: crimson; height: 250px; text-align: center;" class="col-lg">
-              "SEARCH FORM+OUTPUT"
+                <form action="/action_page.php">
+                    <label for="uSearch">ENTER A CITY</label><br>
+                    <input type="text" id="uSearch" name="uSearch" value="city"><br>
+                    <input type="submit" value="Submit">
+                  </form>
+                  
             </div>
         </div>
     </div>
@@ -27,20 +32,15 @@
         </div>
         <h1 style="text-align: center;">5 DAY WEATHER FORECAST</h1>
         <div style="border: black;border-width: 2px;border-style: dashed;" class="row">
-          <div style="border: black;border-width: 2px;border-style: dashed; font-size: xx-large; color: aqua; " class="col-sm">
-            One of five weather day forecasts
+          <div id="column1" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black; " class="col-sm">
           </div>
-          <div style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: aqua;" class="col-sm">
-            Two of five weather day forecasts
+          <div id="column2" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: aqua;" class="col-sm">
-            Three of five weather day forecasts
+          <div id="column3" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: aqua;" class="col-sm">
-            Four of five weather day forecasts
+          <div id="column4" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: aqua;" class="col-sm">
-            Five of five weather day forecasts
+          <div id="column5" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
         </div>
       
@@ -51,9 +51,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         $(function(){
-        $("#div1").append('<div>' + "dis a new div created by jquery" + '</div>');
+        $("#column1").append('<div>' + "dis a new div created by jquery" + '</div>');
+        });
+        $(function(){
+        $("#column2").append('<div>' + "dis a new div created by jquery" + '</div>');
+        });
+        $(function(){
+        $("#column3").append('<div>' + "dis a new div created by jquery" + '</div>');
+        });
+        $(function(){
+        $("#column4").append('<div>' + "dis a new div created by jquery" + '</div>');
+        });
+        $(function(){
+        $("#column5").append('<div>' + "dis a new div created by jquery" + '</div>');
         });
 </script>
 
-</body>
+
 </html>
