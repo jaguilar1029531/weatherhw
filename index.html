@@ -7,17 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wedda Boi</title>
 </head>
-<body background="https://image.shutterstock.com/image-vector/cartoon-unicorn-rainbow-mane-tail-260nw-241772695.jpg" style="width: 100%;">
+<body background="https://image.shutterstock.com/image-illustration/3d-render-penguin-using-mobile-260nw-229242757.jpg" style="width: 100%;">
     <div style="padding-top: 1%; color: white; background-color: darkblue; font-family: Georgia, 'Times New Roman', Times, serif; height: 200px; font-size: 100px; text-align: center;" class="container-fluid" >
         WEDDA BOI USING API
       </div>
    <div style="max-width:35%; float:left; height: 500px; border: black;border-width: 2px;border-style: dashed;" class="container">
         <div class="row">
             <div style="font-size: xx-large; color: crimson; height: 250px; text-align: center;" class="col-lg">
-                <form action="/action_page.php">
-                    <label for="uSearch">ENTER A CITY</label><br>
-                    <input type="text" id="uSearch" name="uSearch" value="city"><br>
-                    <input type="submit" value="Submit">
+                <form class="example" action="action_page.php">
+                    <input style="padding: 10px;
+                    font-size: 17px;
+                    border: 1px solid grey;
+                    float: left;
+                    width: 80%;
+                    background: #f1f1f1;" type="text" placeholder="CITY" name="search">
+                    <button id="btn1" style="float: left;
+                    width: 20%;
+                    padding: 10px;
+                    background: #2196F3;
+                    color: white;
+                    font-size: 17px;
+                    border: 1px solid grey;
+                    border-left: none;
+                    cursor: pointer;" type="submit"><i class="fa fa-search"></i>SEARCH</button>
                   </form>
                   
             </div>
@@ -32,15 +44,15 @@
         </div>
         <h1 style="text-align: center;">5 DAY WEATHER FORECAST</h1>
         <div style="border: black;border-width: 2px;border-style: dashed;" class="row">
-          <div id="column1" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black; " class="col-sm">
+          <div id="column1" style="background-color: plum; border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black; " class="col-sm">
           </div>
-          <div id="column2" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
+          <div id="column2" style="background-color: paleturquoise; border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div id="column3" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
+          <div id="column3" style="background-color: aquamarine; border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div id="column4" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
+          <div id="column4" style="background-color: cornsilk; border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
-          <div id="column5" style="border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
+          <div id="column5" style="background-color: pink; border: black;border-width: 2px;border-style: dashed;font-size: xx-large; color: black;" class="col-sm">
           </div>
         </div>
       
@@ -50,6 +62,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+
+// here is my weather .org api key 49d7ab70643b004cd746a46f9a065d42
+
+$("#btn1").on("click", function(event) {
+    event.preventDefault();
+        
+
+        // this is the address at which you'll find the information you're looking for and you put your api key-
+        //- in it. 
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Austin&appid=49d7ab70643b004cd746a46f9a065d42";
+        console.log(queryURL);
+        //these are two arguments needed for ajax to go and retrieve something for you, it needs a place to go-
+        //-and a method of what its doing. getting a single image using the above url. gets one things at a time
+        // $.ajax({
+        //   url: queryURL,
+        //   method: "GET"
+          
+        // })
+        
+        // // // this function lays out the details of how you want to handle the response from the server, or when we get the info-
+        // // // -back from the server, in this case about a particular giphy image, or we get a list of them
+        //   .then(function(response) {
+        
+        //   //this goes into the response you got from the server and pulls specific information-
+        //   //-so that you don't have to comb through hella lines of an object to look at them. storing the image url into a variable
+        //     var articleURL = response.data;
+        
+        //     //this looks like a place for you to take your response from the server and place it. creating new html element to store this image
+        //     var searchResult = $("<p>");
+        
+        //     //this is going to be the url of the cat image you wanted from the server, and-
+        //     //-underneath it you will see an alt tag for accessibility
+        //     searchResult.attr("src", articleURL);
+        
+        //     //this is a jquery method to take the cat image  you got from the server you reached-
+        //     //-and put it at the top of your area where you are placing these in your doc
+        //     $("#testParagraph").prepend(searchResult);
+        //   });
+        });
+
+
         $(function(){
         $("#column1").append('<div>' + "dis a new div created by jquery" + '</div>');
         });
