@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+$(document).ready(function() {
+    $.ajax({
+        url: '/datacall/demo.json',
+        dataType: 'json',
+        success: function( resp ) {
+            $( '#div' ).val( resp.currency[0].amount );
+        },
+        error: function( req, status, err ) {
+            console.log( 'Something went wrong', status, err );
+        }
+    });
+    var end = parseInt($('#value').val());
+    var newend = parseInt($('#div').val());
+    var result = $( end * newend );
+    $('#clickme').click(function() {
+        $('#new').val( result );
+    });
+});
+
+
+var end = parseInt($('#value').val(), 10);
+var newend = 0;
+var result = 0;
+
+$.ajax({
+    url: '/datacall/demo.json',
+    dataType: 'json',
+    success: function (resp) {
+
+        // Check the values in console
+        console.log(resp.currency[0].amount);
+        console.log(resp.d.currency[0].amount);
+
+        $('#div').val(resp.currency[0].amount);
+        newend = parseInt(resp.currency[0].amount, 10);
+        result = end * newend;
+
+        // No need to create a new jQuery object using $()
+        // result = $( end * newend );
+    },
+    error: function (req, status, err) {
+        console.log('Something went wrong', status, err);
+    }
+});
+
+$('#clickme').click(function () {
+    $('#new').val(result);
+});
+</script>
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
